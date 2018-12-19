@@ -1,0 +1,21 @@
+(define flatten
+  (lambda (slist)
+    (if (null? slist)
+      '() 
+      (append 
+        (let ((sexp (car slist)))
+          (if (list? sexp)
+            (flatten sexp)
+            (list sexp)
+          )
+        )
+        (flatten (cdr slist))
+      )
+    )
+  )
+)
+
+(flatten '(a b c))
+(flatten '((a) () (b ()) () (c)))
+(flatten '((a b) c (((d)) e)))
+(flatten '(a b (() (c))))
