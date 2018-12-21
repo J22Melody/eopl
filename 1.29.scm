@@ -16,20 +16,20 @@
 )
 
 (define sort
-  (lambda (soi)
+  (lambda (loi)
     (cond
-      ((null? soi) '())
-      ((eqv? (length soi) 1) soi)
-      ((eqv? (length soi) 2)
-        (if (<= (car soi) (cadr soi))
-          soi
-          (cons (cadr soi) (list (car soi)))
+      ((null? loi) '())
+      ((eqv? (length loi) 1) loi)
+      ((eqv? (length loi) 2)
+        (if (<= (car loi) (cadr loi))
+          loi
+          (cons (cadr loi) (list (car loi)))
         )
       )
       (else
         (merge
-          (sort (list (car soi) (cadr soi)))
-          (sort (cddr soi))
+          (sort (list (car loi) (cadr loi)))
+          (sort (cddr loi))
         )
       )
     )
