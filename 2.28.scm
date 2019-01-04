@@ -1,0 +1,15 @@
+(define unparse
+  (lambda (exp)
+    (cases lc-exp exp
+      (var-exp (var)
+        (symbol->string var)
+      ) 
+      (lambda-exp (bound-var body)
+        (format "proc ~a => ~a" bound-var (unparse body)))
+      )
+      (app-exp (rator rand)
+        (format "~a(~a)" (unparse rator) (unparse rand))
+      )
+    )
+  )
+)
