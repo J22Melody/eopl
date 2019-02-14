@@ -289,7 +289,7 @@
           (report-error 'no-condition-matches)
           (if (expval->bool (value-of (car conds) env))
             (value-of (car acts) env)
-            (value-of (cond-exp (cdr conds) (cdr acts)))
+            (value-of (cond-exp (cdr conds) (cdr acts)) env)
           )
         )
       )
