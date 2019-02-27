@@ -1,0 +1,5 @@
+(begin-exp (exps)
+  (let ((vals (map (lambda (exp1) (value-of exp1 env)) exps)))
+    (list-ref vals (- (length vals) 1)
+  )
+)
